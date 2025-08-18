@@ -4,9 +4,13 @@ let getHumanChoice = () => {
     return parseInt(playerChoice) ?? 1;
 }
 //Step two: Get computer choice
-
+let getComputerChoice = () => {
+    let computerChoice = Math.round(Math.random() * 3) + 1;
+    return computerChoice;
+}
 //Step three: Calculate results
 
 //Step four: Repeat previous steps for a total of N rounds
 
 console.log(getHumanChoice());
+console.log(getComputerChoice());
