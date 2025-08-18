@@ -11,6 +11,3 @@ let getComputerChoice = () => {
 //Step three: Calculate results
 
 //Step four: Repeat previous steps for a total of N rounds
-
-console.log(getHumanChoice());
-console.log(getComputerChoice());
