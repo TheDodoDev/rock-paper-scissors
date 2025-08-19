@@ -1,18 +1,18 @@
-const ROCK = 1;
-const PAPER = 2;
-const SCISSORS = 3;
+var ROCK = 1;
+var PAPER = 2;
+var SCISSORS = 3;
 //Step one: Take input from player
-let getHumanChoice = () => {
-    let playerChoice = window.prompt("Make your move! Pick:\n1) Rock\n2) Paper\n3)Scissors");
-    return parseInt(playerChoice) ?? 1;
-}
+var getHumanChoice = function () {
+    var _a;
+    var playerChoice = window.prompt("Make your move! Pick:\n1) Rock\n2) Paper\n3)Scissors");
+    return (_a = parseInt(playerChoice)) !== null && _a !== void 0 ? _a : 1;
+};
 //Step two: Get computer choice
-let getComputerChoice = () => {
-    let computerChoice = Math.round(Math.random() * 3) + 1;
+var getComputerChoice = function () {
+    var computerChoice = Math.round(Math.random() * 3) + 1;
     return computerChoice;
-}
-//Step three: Calculate results
-let determineWinner = (humanChoice, computerChoice) => {
+};
+function determineWinner(humanChoice, computerChoice) {
     if (humanChoice == ROCK) {
         if (computerChoice == SCISSORS) {
             playerScore++;
@@ -46,18 +46,15 @@ let determineWinner = (humanChoice, computerChoice) => {
     return "Tie! You both picked the same thing!";
 }
 //Step four: Repeat previous steps for a total of N rounds
-let playerScore = 0;
-let computerScore = 0;
-
-for (let i = 0; i < 5; i++) {
-    let humanChoice = getHumanChoice();
-    let computerChoice = getComputerChoice();
-
+var playerScore = 0;
+var computerScore = 0;
+for (var i = 0; i < 5; i++) {
+    var humanChoice = getHumanChoice();
+    var computerChoice = getComputerChoice();
     console.log(determineWinner(humanChoice, computerChoice));
 }
-
 if (playerScore > computerScore) {
-    console.log("You Win the Game!")
+    console.log("You Win the Game!");
 }
 else if (playerScore < computerScore) {
     console.log("COM Wins the game!");
