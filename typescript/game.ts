@@ -1,18 +1,23 @@
 const ROCK: number = 1;
 const PAPER: number = 2;
 const SCISSORS: number = 3;
+
 //Step one: Take input from player
-let getHumanChoice = () => {
+
+function getHumanChoice(): number {
     let playerChoice: any = window.prompt("Make your move! Pick:\n1) Rock\n2) Paper\n3)Scissors");
     return parseInt(playerChoice) ?? 1;
 }
+
 //Step two: Get computer choice
-let getComputerChoice = () => {
+
+function getComputerChoice(): number {
     let computerChoice: number = Math.round(Math.random() * 3) + 1;
     return computerChoice;
 }
+
 //Step three: Calculate results
-type CompareFunction = (humanChoice: number, computerChoice: number) => string;
+
 function determineWinner(humanChoice: number, computerChoice: number): string {
     if (humanChoice == ROCK) {
         if (computerChoice == SCISSORS) {
