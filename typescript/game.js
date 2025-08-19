@@ -1,32 +1,28 @@
-const ROCK: number = 1;
-const PAPER: number = 2;
-const SCISSORS: number = 3;
-const NONE: number = 0;
+var ROCK = 1;
+var PAPER = 2;
+var SCISSORS = 3;
+var NONE = 0;
 //Step one: Take input from player
-
-function getHumanChoice(e): void {
+function getHumanChoice(e) {
     console.log(e.target.textContent);
     if (e.target.textContent == "Rock") {
         playerChoice = ROCK;
-    } else if (e.target.textContent == "Paper") {
+    }
+    else if (e.target.textContent == "Paper") {
         playerChoice = PAPER;
-    } else if (e.target.textContent == "Scissors") {
+    }
+    else if (e.target.textContent == "Scissors") {
         playerChoice = SCISSORS;
     }
-
     console.log(determineWinner(playerChoice, getComputerChoice()));
 }
-
 //Step two: Get computer choice
-
-function getComputerChoice(): number {
-    let computerChoice: number = Math.round(Math.random() * 3) + 1;
+function getComputerChoice() {
+    var computerChoice = Math.round(Math.random() * 3) + 1;
     return computerChoice;
 }
-
 //Step three: Calculate results
-
-function determineWinner(humanChoice: number, computerChoice: number): string {
+function determineWinner(humanChoice, computerChoice) {
     if (humanChoice == ROCK) {
         if (computerChoice == SCISSORS) {
             playerScore++;
@@ -59,18 +55,14 @@ function determineWinner(humanChoice: number, computerChoice: number): string {
     }
     return "Tie! You both picked the same thing!";
 }
-
 //Step four: Repeat previous steps for a total of N rounds
-
-let playerScore: number = 0;
-let computerScore: number = 0;
-
-let playerChoice = NONE;
-
-let buttons: NodeList = document.querySelectorAll(".option");
-buttons.forEach((button) => {
-    button.addEventListener("click", (e) => {
-        const element = e.target as HTMLElement;
+var playerScore = 0;
+var computerScore = 0;
+var playerChoice = NONE;
+var buttons = document.querySelectorAll(".option");
+buttons.forEach(function (button) {
+    button.addEventListener("click", function (e) {
+        var element = e.target;
     });
     button.addEventListener("click", getHumanChoice);
 });
