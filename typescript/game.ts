@@ -5,7 +5,10 @@ const NONE: number = 0;
 //Step one: Take input from player
 
 function getHumanChoice(e): void {
-    console.log(e.target.textContent);
+    if (playerScore == 5 || computerScore == 5) {
+        return;
+    }
+
     if (e.target.textContent == "Rock") {
         playerChoice = ROCK;
     } else if (e.target.textContent == "Paper") {
@@ -14,7 +17,9 @@ function getHumanChoice(e): void {
         playerChoice = SCISSORS;
     }
 
-    console.log(determineWinner(playerChoice, getComputerChoice()));
+    resultText.textContent = determineWinner(playerChoice, getComputerChoice())
+    playerScoreText.textContent = playerScore.toString();
+    computerScoreText.textContent = computerScore.toString();
 }
 
 //Step two: Get computer choice
@@ -66,6 +71,10 @@ let playerScore: number = 0;
 let computerScore: number = 0;
 
 let playerChoice = NONE;
+
+const playerScoreText: any = document.querySelector("#human");
+const computerScoreText: any = document.querySelector("#computer");
+const resultText: any = document.querySelector(".result");
 
 let buttons: NodeList = document.querySelectorAll(".option");
 buttons.forEach((button) => {
