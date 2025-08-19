@@ -47,22 +47,5 @@ function determineWinner(humanChoice: number, computerChoice: number): string {
     return "Tie! You both picked the same thing!";
 }
 //Step four: Repeat previous steps for a total of N rounds
-let playerScore = 0;
-let computerScore = 0;
-
-for (let i = 0; i < 5; i++) {
-    let humanChoice = getHumanChoice();
-    let computerChoice = getComputerChoice();
-
-    console.log(determineWinner(humanChoice, computerChoice));
-}
-
-if (playerScore > computerScore) {
-    console.log("You Win the Game!")
-}
-else if (playerScore < computerScore) {
-    console.log("COM Wins the game!");
-}
-else {
-    console.log("Tie Game!");
-}
+let playerScore: number = 0;
+let computerScore: number = 0;
