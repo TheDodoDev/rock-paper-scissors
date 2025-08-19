@@ -19,6 +19,12 @@ function getHumanChoice(e) {
     resultText.textContent = determineWinner(playerChoice, getComputerChoice());
     playerScoreText.textContent = playerScore.toString();
     computerScoreText.textContent = computerScore.toString();
+    if (playerScore == 5) {
+        finalResultText.textContent = "YOU WIN!";
+    }
+    else if (computerScore == 5) {
+        finalResultText.textContent = "COM WINS!";
+    }
 }
 //Step two: Get computer choice
 function getComputerChoice() {
@@ -66,6 +72,7 @@ var playerChoice = NONE;
 var playerScoreText = document.querySelector("#human");
 var computerScoreText = document.querySelector("#computer");
 var resultText = document.querySelector(".result");
+var finalResultText = document.querySelector(".final");
 var buttons = document.querySelectorAll(".option");
 buttons.forEach(function (button) {
     button.addEventListener("click", function (e) {

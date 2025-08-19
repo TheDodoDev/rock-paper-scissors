@@ -20,6 +20,12 @@ function getHumanChoice(e): void {
     resultText.textContent = determineWinner(playerChoice, getComputerChoice())
     playerScoreText.textContent = playerScore.toString();
     computerScoreText.textContent = computerScore.toString();
+
+    if (playerScore == 5) {
+        finalResultText.textContent = "YOU WIN!"
+    } else if (computerScore == 5) {
+        finalResultText.textContent = "COM WINS!";
+    }
 }
 
 //Step two: Get computer choice
@@ -75,6 +81,7 @@ let playerChoice = NONE;
 const playerScoreText: any = document.querySelector("#human");
 const computerScoreText: any = document.querySelector("#computer");
 const resultText: any = document.querySelector(".result");
+const finalResultText: any = document.querySelector(".final");
 
 let buttons: NodeList = document.querySelectorAll(".option");
 buttons.forEach((button) => {
